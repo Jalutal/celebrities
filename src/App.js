@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AllCelebrities from "./pages/AllCelebrities";
 import OneCelebrity from "./pages/OneCelebrity";
 import Random from "./pages/Random";
+import TvSpeakersPage from "./pages/TvSpeakersPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/allceleb" element={<AllCelebrities />} />
         <Route path="/celebrities/:celebrityId" element={<OneCelebrity />} />
         <Route path="/random" element={<Random />} />
+        <Route path="/speakers" element={<TvSpeakersPage />} />
       </Routes>
     </BrowserRouter>
     </>
