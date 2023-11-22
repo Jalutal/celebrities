@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function CopyrightPage() {
 //On crée(eeee, trop de e) une variable avec useState => setTextAppear va venir modifier la valeur de textAppear en fonction 
-//de ce qui est renvoyé par useState. Dans le cas présent textAppear=true.
+//de ce qui est renvoyé par useState. Dans le cas présent textAppear=true. Elle modifie la valeur et recharge le composant.
     const [textAppear, setTextAppear] = useState(true);
 //Au click sur le bouton, on va venir changer la valeur de textAppear en lui passant l'inverse (ici de true à false)
     const clickButton = () => {
