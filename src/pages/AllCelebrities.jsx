@@ -9,7 +9,7 @@ function AllCelebrities() {
 
     return(
         <>
-        <Header />
+        <Header currentPage="AllCelebrities"/>
         <p>Coucou All Celebrities</p>
         <p><strong>On va importe à nouveau toutes les célébrités mais maintenant on va ajouter le useParams et on va pleurer.</strong></p>
         {shittyStars.map(star => {

@@ -10,7 +10,7 @@ function HomePage() {
 
     return(
         <>
-        <Header />
+        <Header currentPage="HomePage"/>
         <h1>Ceci est ma HomePage</h1>
         <p><strong>But de la HomePage: Dans un premier temps, avoir une liste complète, sans chichis.</strong></p>
         {shittyStars.map((shitty) => (
