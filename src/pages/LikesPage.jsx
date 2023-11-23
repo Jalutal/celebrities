@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 //Je crée une fonction avec une variante "likes" et une fonction / hook nommée useState qui va maintenir l'état de changement
 //de la variable au rechargement de la page (on évitera ainsi que le like se recharge à 0 à chaque fois).
 
-
+// HandleLikes va modifier la valeur et recharger la page via le onClick.
 
 function LikesPage() {
 
