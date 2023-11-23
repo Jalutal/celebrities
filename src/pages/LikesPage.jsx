@@ -9,22 +9,38 @@ import Footer from "../components/Footer";
 
 function LikesPage() {
 
-const [likes, setLikes] = useState(0);
-const HandleLikes = () => {
-    setLikes(likes + 1);
-};
-
-    return(
-        <>
+    const [likes, setLikes] = useState(0);
+    const [displayMessage, setDisplayMessage] = useState(false);
+  
+    const HandleLikes = () => {
+      if (likes < 5) {
+        setLikes(likes + 1);
+      } else {
+        setDisplayMessage(true);
+      }
+    };
+  
+    const HandleMessage = () => {
+      setDisplayMessage(false);
+    };
+  
+    return (
+      <>
         <Header />
         <main>
-            <button onClick={HandleLikes}>J'aime trop ce que tu fais</button>
-            <p>Vous avez trop trop kiffé mon taff {likes} fois. L'amour de Pascal Sevran sur vous.</p>
+          {displayMessage && (
+            <div>
+              <p>Vous ne pouvez pas kiffer mon taff plus de 5 fois, coquin.</p>
+              <button onClick={HandleMessage}>Fermes, de toute façon y'a rien d'autre à faire</button>
+            </div>
+          )}
+          <button onClick={HandleLikes}>J'aime trop ce que tu fais</button>
+          <p>Vous avez trop trop kiffé mon taff {likes} fois. L'amour de Pascal Sevran sur vous.</p>
         </main>
         <Footer />
-        </>
-    )
-
-}
-
-export default LikesPage;
+      </>
+    );
+  }
+  
+  export default LikesPage;
+  
