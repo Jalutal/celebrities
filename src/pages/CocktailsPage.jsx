@@ -7,30 +7,34 @@ import { useState } from "react";
 //arrête.
 //dans le return, on met une ternaire qui vient vérifier si les données sont présentes (un affichage ou l'autre).
 
+//Dans setCocktails on rajoute le .drinks pour récupérer la clé de l'api en rapport avec le tableau.
+//Dans le return on va faire un map de cocktails afin de récupérer chaque entrée et d'en faire un affichage dans la balise h2.
+
 function CocktailsPage() {
     const [cocktails, setCocktails] = useState(null);
 
-    if (!cocktails){
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=")
-    .then((response) => {
-        return response.json();
-    })
-    .then((json)=> {
-        console.log(json);
-        setCocktails(json);
-    })
+    if (!cocktails) {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=")
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json);
+                setCocktails(json.drinks);
+            });
     }
-
     return (
         <main>
-            {cocktails ?
-            <article>Cocktails frais et prêts, on va encore rentrer à 3 grammes YOLO PTDR</article>
-            :
-            <p>On attend, encore et toujours...</p>
-            }
+            {cocktails ? (
+                <>
+                    <article>Cocktails frais et prêts, on va encore rentrer à 3 grammes YOLO PTDR. CHECK LA LISTE :</article>
+                    {cocktails.map((cocktail) => (
+                        <div key={cocktail.idDrink}>                            
+                            <h2>{cocktail.strDrink}</h2>
+                        </div>
+                    ))}
+                </>
+            ) : null}
         </main>
-    )
-
+    );
 }
 
 export default CocktailsPage;
